@@ -42,18 +42,18 @@ export const Home = () => {
             <div class="container grid grid-four-cols">
 
             <div class="div1">
-                <h2>50+</h2>
+                <h2>20+</h2>
                 <p>registered retailers</p>
             </div>
 
             <div class="div1">
-                <h2>100,00+</h2>
+                <h2>50,000+</h2>
                 <p>Happy Clients</p>
             </div>
 
             <div class="div1">
                 <h2>1M+</h2>
-                <p>Calendars sold</p>
+                <p>Products sold</p>
             </div>
 
             <div className="div1">  
