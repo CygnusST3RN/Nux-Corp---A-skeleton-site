@@ -103,8 +103,8 @@ button {
 }
 .btn2{
   background-color: var(--dark-color);
-  border: solid white 1px;
-  margin-left: 10px;
+  border: solid var(--btn-color) 2px;
+  margin-left: 20px;
 }
 .secondary-btn {
   background-color: transparent;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-
+import { useEffect } from "react";
 const URL = "http://localhost:5000/login";
 export const Login = () => {
 
@@ -47,7 +47,14 @@ export const Login = () => {
                 });
                 alert("Welcome ");
                 console.log(response);
-                navigate("/");
+
+                //to change to logged in state
+                navigate('/');
+                
+                useEffect( () => {
+                    storeTokenInLS();
+                }, [storeTokenInLS]);
+
             }
             else{
                 alert("Invalid Credentials");
