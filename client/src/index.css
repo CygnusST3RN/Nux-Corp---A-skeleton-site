@@ -27,9 +27,9 @@ body {
   min-height: 100vh;
 }
 
- /*?  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical */
-
 h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 5.4rem;
   line-height: 1.1;
   font-weight: bold;
@@ -101,7 +101,11 @@ button {
   -ms-transition: border-color 0.3s;
   -o-transition: border-color 0.3s;
 }
-
+.btn2{
+  background-color: var(--dark-color);
+  border: solid white 1px;
+  margin-left: 10px;
+}
 .secondary-btn {
   background-color: transparent;
   box-shadow: inset 0 0 0 0.2rem var(--btn-color);
@@ -309,15 +313,16 @@ a.active {
   font-size: 2rem;
 }
 
-.content .btns {
+.content .btn2 {
   margin: 25px 0;
   display: inline-flex;
   justify-content: center;
 }
 .content .btns a {
   display: inline-block;
-  margin: 0 10px;
+  margin: 10px;
   text-decoration: none;
+  background-color: var(--dark-color);
   border: 2px solid var(--btn-color);
   color: var(--btn-color);
   font-weight: 500;
