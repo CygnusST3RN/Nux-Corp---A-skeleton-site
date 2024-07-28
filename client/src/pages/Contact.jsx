@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { useAuth } from "../store/auth";
+import { useEffect } from "react";
 export const Contact = () => {
   const [contact, setContact] = useState({
     username: "",
@@ -7,7 +8,38 @@ export const Contact = () => {
     message: "",
   });
 
-  // lets tackle our handleInput
+  /* We can do this way also :-
+  //to get the data from user creating one more state to use it in the form when user is logged in
+  //assuming that we have the user data setting true initially
+  const [userData, setUserData] = useState(true);
+  const { user } = useAuth();
+
+  if(user && userData){
+    //check if the user and userData both present i.e. true
+    //user is true if user have some data passed and stored in case of logged in
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+
+    setUserData(false);
+  }
+  */
+  //Or better to do this way
+  const { user } = useAuth();
+
+  useEffect(() => {
+      if (user) {
+        setContact({
+          username: user.username,
+          email: user.email,
+          message: "",
+        });
+      }
+  }, [user]);
+
+  // tackle the handleInput
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -18,14 +50,13 @@ export const Contact = () => {
     });
   };
 
-  // handle fomr getFormSubmissionInfo
+  // handle form getFormSubmissionInfo
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log(contact);
   };
 
-//  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical
 
   return (
     <>

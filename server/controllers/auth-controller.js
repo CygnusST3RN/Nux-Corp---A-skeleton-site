@@ -5,7 +5,7 @@ const home = async (req, res) => {
     try{
         res
         .status(200)
-        .send("<body> <h1>Welcome to the site home page . This is a good page from router and controller changed again</h1> </body>");
+        .send("<body> <h1>Home: A place where i can go to take this off my shoulders. Someone take me home</h1> </body>");
     }
     catch(error)
     {
@@ -74,7 +74,7 @@ const user = async (req, res) => {
     try {
         const userData = req.user;
         console.log(userData);
-        return res.status(200).json({msg: userData});
+        return res.status(200).json({userData});
     } catch (error) {
         console.log("Error from the user route", error);
     }

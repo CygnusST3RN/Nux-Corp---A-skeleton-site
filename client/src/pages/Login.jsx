@@ -48,9 +48,9 @@ export const Login = () => {
                 alert("Welcome ");
                 console.log(response);
 
-                //to change to logged in state
                 navigate('/');
                 
+                //to change to logged in state
                 useEffect( () => {
                     storeTokenInLS();
                 }, [storeTokenInLS]);
