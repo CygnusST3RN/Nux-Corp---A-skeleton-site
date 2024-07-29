@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { useEffect } from "react";
 export const Contact = () => {
-  const [contact, setContact] = useState({
+
+  const setDefaultData = {
     username: "",
     email: "",
     message: "",
-  });
+  }
+  const [contact, setContact] = useState(setDefaultData);
 
   /* We can do this way also :-
   //to get the data from user creating one more state to use it in the form when user is logged in
@@ -51,10 +53,28 @@ export const Contact = () => {
   };
 
   // handle form getFormSubmissionInfo
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(contact);
+    try {
+      const response = await fetch(
+        "http://localhost:5000/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json",
+          },
+          body: JSON.stringify(contact),
+      });
+
+      if(response.ok){
+        // console.log(response);
+        setContact(setDefaultData);
+        alert("Messaage sent successfully");
+      }
+    } catch (error) {
+      console.log("Error occured while storing data");
+    }
   };
 
 
