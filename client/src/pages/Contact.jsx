@@ -72,6 +72,9 @@ export const Contact = () => {
         setContact(setDefaultData);
         alert("Messaage sent successfully");
       }
+      else{
+        console.log("failed to store message");
+      }
     } catch (error) {
       console.log("Error occured while storing data");
     }
