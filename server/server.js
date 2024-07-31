@@ -5,7 +5,7 @@ const contactRouter = require("./router/contact-router");
 const connectDB = require("./utils/db");
 const errorMiddleWare = require("./MiddleWare/error-middleware");
 const cors = require("cors");
-
+const serviceRouter = require("./router/service-router");
 const app = express();
 
 
@@ -30,6 +30,8 @@ app.use("/", router);
 app.use("/register", router);
 
 app.use('/contact', contactRouter);
+
+app.use('/api/data', serviceRouter);
 
 app.use(errorMiddleWare);
 
