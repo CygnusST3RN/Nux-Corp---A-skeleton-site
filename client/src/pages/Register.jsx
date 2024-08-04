@@ -10,7 +10,7 @@ export const Register = () => {
         password:"",
     });
 
-    const handleinput = (e)=>{
+    const handleinput = (e)=>{  
         console.log(e);
         let name = e.target.name;
         let value = e.target.value;
@@ -38,8 +38,8 @@ export const Register = () => {
                     body: JSON.stringify(user),
             });
 
+            const responseData = await response.json();
             if(response.ok){
-                const responseData = await response.json();
                 alert("Registration Successful");
                 console.log('res from server', responseData);
                 storeTokenInLS(responseData.token);
@@ -51,6 +51,8 @@ export const Register = () => {
                 });
                 console.log(response);
                 navigate("/login");
+            }else{
+                alert(responseData.extra ? responseData.extra : responseData.message);
             }
         } catch (error) {
             console.log("Error found in Register", error);

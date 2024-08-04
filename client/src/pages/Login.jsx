@@ -37,8 +37,8 @@ export const Login = () => {
                 body: JSON.stringify(user),
             });
 
+            const responseData = await response.json();
             if(response.ok){
-                const responseData = await response.json();
                 console.log(responseData);
                 storeTokenInLS(responseData.token);
                 loginUser({
@@ -57,7 +57,7 @@ export const Login = () => {
 
             }
             else{
-                alert("Invalid Credentials");
+                alert(responseData.extra ? responseData.extra : responseData.message);
             }
         } catch (error) {
             console.error("login error : ", error);
