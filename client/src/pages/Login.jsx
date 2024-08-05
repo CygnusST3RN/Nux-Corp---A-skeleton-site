@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
+
 const URL = "http://localhost:5000/login";
 export const Login = () => {
 
@@ -57,7 +59,7 @@ export const Login = () => {
 
             }
             else{
-                alert(responseData.extra ? responseData.extra : responseData.message);
+                toast.error(responseData.extra ? responseData.extra : "Invalid Credentials");
             }
         } catch (error) {
             console.error("login error : ", error);

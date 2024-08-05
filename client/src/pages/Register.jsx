@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 export const Register = () => {
 
     const [user, setUser] = useState({
@@ -52,7 +53,7 @@ export const Register = () => {
                 console.log(response);
                 navigate("/login");
             }else{
-                alert(responseData.extra ? responseData.extra : responseData.message);
+                toast.error(responseData.extra ? responseData.extra : responseData.message);
             }
         } catch (error) {
             console.log("Error found in Register", error);
